@@ -1,10 +1,10 @@
-// Ionic Starter App
+// Ionic pgt App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
+// 'pgt' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+// 'pgt.controllers' is found in controllers.js
+angular.module('pgt', ['ionic', 'pgt.controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -28,6 +28,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     abstract: true,
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
+  })
+
+  .state('app.bio', {
+    url: '/bio',
+    views: {
+      'menuContent': {
+        templateUrl: "templates/bio.html"
+      }
+    }
+  })
+
+  .state('app.agenda', {
+    url: '/agenda',
+    views: {
+      'menuContent': {
+        templateUrl: "templates/agenda.html"
+      }
+    }
   })
 
   .state('app.search', {
