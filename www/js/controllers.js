@@ -1,6 +1,6 @@
 angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
-.controller('MapCtrl', function($scope) {
+.controller('MapCtrl', function($scope, $state, $stateParams) {
   $scope.map = {
     center: {
         latitude:  25.675769,
@@ -21,10 +21,10 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
   $scope.circle = {
     center: {
-        latitude: 25.675769,
-        longitude: -100.239759
+        latitude: $scope.map.center.latitude,
+        longitude: $scope.map.center.longitude
     },
-    radius: 300,
+    radius: 50,
     stroke: {
         color: '#29dd12',
         weight: 2,
@@ -37,23 +37,38 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     draggable: false,
     editable: false
   };
+
+  console.log("Param: " + $stateParams.lat);
+  console.log("Param: " + $stateParams.lng);
+  $scope.map.center.latitude = $stateParams.lat;
+  $scope.map.center.longitude = $stateParams.lng;
+
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopup) {
-  // Form data for the login modal
-  $scope.loginData = {};
+.controller('AgendaCtrl', function($scope) {
+  $scope.lugares = [
+  {
+    idea: 1,
+    direccion: "La Pastora",
+    latitude:  25.668212, 
+    longitude: -100.248840
+  },
+  { 
+    idea: 2,
+    direccion: "Hosp. Materno Infantil",
+    latitude:  25.694096, 
+    longitude: -100.222575
+  },
+  { 
+    idea: 3,
+    direccion: "Facultad de Artes Visuales",
+    latitude:  25.614009, 
+    longitude: -100.277443
+  }
+  ];
+})
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeAbout = function() {
-    $scope.modal.hide();
-  };
+.controller('AppCtrl', function($scope, $timeout, $ionicPopup) {
 
   $scope.showAbout = function() {
    var alertPopup = $ionicPopup.alert({
@@ -65,17 +80,6 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   // Open the login modal
   $scope.about = function() {
     $scope.modal.show();
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeAbout();
-    }, 1000);
   };
 })
 

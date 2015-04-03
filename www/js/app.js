@@ -81,6 +81,16 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/agenda.html",
+        controller: 'AgendaCtrl'
+      }
+    }
+  })
+
+  .state('app.mapa', {
+    url: "/agenda/:lat/:lng",
+    views: {
+      "menuContent": {
+        templateUrl: "templates/mapa.html",
         controller: 'MapCtrl'
       }
     }

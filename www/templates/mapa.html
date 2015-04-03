@@ -1,0 +1,18 @@
+<ion-view view-title="Mapa">
+  <ion-content>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+    
+    <ui-gmap-circle 
+      center="map.center"
+      radius="circle.radius"
+      stroke="circle.stroke"
+      fill="circle.fill"
+      draggable="circle.draggable"
+      editable="circle.editable"
+    ></ui-gmap-circle>
+
+	</ui-gmap-google-map>
+    <p class="padding">{{idea}}</p>
+    <p class="padding">Mapa general</p>
+  </ion-content>
+</ion-view>

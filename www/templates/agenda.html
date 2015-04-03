@@ -1,18 +1,11 @@
 <ion-view view-title="Agenda">
-  <ion-content>
-  <ion-refresher pulling-text="Deslice hacia abajo para actualizar..." on-refresh="doRefresh()"></ion-refresher>
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-    
-    <ui-gmap-circle 
-      center="circle.center"
-      radius="circle.radius"
-      stroke="circle.stroke"
-      fill="circle.fill"
-      draggable="circle.draggable"
-      editable="circle.editable"
-    ></ui-gmap-circle>
+	<ion-content>
+		<div class="list">
 
-	</ui-gmap-google-map>
-    <p class="padding">Mapa general</p>
-  </ion-content>
+			<a ng-repeat="lugar in lugares" class="item item-icon-right" ui-sref="app.mapa({lat: '{{lugar.latitude}}', lng: '{{lugar.longitude}}'})">
+			<i class="icon ion-ios-arrow-forward"></i>
+			{{lugar.direccion}}
+			</a>
+		</div>
+	</ion-content>
 </ion-view>
