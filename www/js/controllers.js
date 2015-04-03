@@ -9,7 +9,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
       zoom: 16,
       options: {
         scrollwheel: false,
-        minZoom: 12,
+        minZoom: 13,
         maxZoom: 18,
         streetViewControl: false,
         rotateControl: false,
