@@ -6,7 +6,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
         latitude:  25.675769,
         longitude: -100.239579
       },
-      zoom: 16,
+      zoom: 17,
       options: {
         scrollwheel: false,
         minZoom: 13,
@@ -172,7 +172,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
                   }
               ]
           }
-      ]
+        ]
       },
       control: {}
   };
@@ -184,12 +184,14 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     },
     radius: 50,
     stroke: {
-        color: '#29dd12',
+        // color: '#29dd12',
+        color: '#cd5d1e',
         weight: 2,
         opacity: 1
     },
     fill: {
-        color: '#ffffff',
+        // color: '#ffffff',
+        color: '#cd5d1e',
         opacity: 0.15
     },
     draggable: false,
@@ -222,6 +224,18 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     direccion: "Facultad de Artes Visuales",
     latitude:  25.614009, 
     longitude: -100.277443
+  },
+  {
+    idea: 4,
+    direccion: "Oficina del PAN",
+    latitude: 25.675775,
+    longitude: -100.224663
+  },
+  {
+    idea: 5,
+    direccion: "Barrio Antiguo",
+    latitude: 25.665689,
+    longitude:  -100.308431
   }
   ];
 })

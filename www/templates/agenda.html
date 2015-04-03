@@ -1,7 +1,7 @@
 <ion-view view-title="Agenda">
 	<ion-content>
+		<h3 class="padding">Próximos lugares a visitar</h3>
 		<div class="list">
-
 			<a ng-repeat="lugar in lugares" class="item item-icon-right" ui-sref="app.mapa({lat: '{{lugar.latitude}}', lng: '{{lugar.longitude}}'})">
 			<i class="icon ion-ios-arrow-forward"></i>
 			{{lugar.direccion}}
