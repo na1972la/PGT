@@ -29,9 +29,27 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     templateUrl: "templates/menu.html",
     controller: 'AppCtrl'
   })
+  
+  .state('app.index', {
+    url: "/index",
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/inicio.html'
+      }
+    }
+  })
+
+  .state('app.propuestas', {
+    url: "/propuestas",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/propuestas.html"
+      }
+    }
+  })
 
   .state('app.bio', {
-    url: '/bio',
+    url: "/bio",
     views: {
       'menuContent': {
         templateUrl: "templates/bio.html"
@@ -40,10 +58,11 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
   })
 
   .state('app.agenda', {
-    url: '/agenda',
+    url: "/agenda",
     views: {
       'menuContent': {
-        templateUrl: "templates/agenda.html"
+        templateUrl: "templates/agenda.html",
+        controller: 'MapCtrl'
       }
     }
   })
@@ -85,5 +104,5 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/index');
 });

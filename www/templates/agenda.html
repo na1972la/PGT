@@ -1,6 +1,18 @@
 <ion-view view-title="Agenda">
-  <ion-content class="padding">
-  <ion-refresher pulling-text="Deslice hacia abajo para actualizar..."></ion-refresher>
+  <ion-content>
+  <ion-refresher pulling-text="Deslice hacia abajo para actualizar..." on-refresh="doRefresh()"></ion-refresher>
+    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
     
+    <ui-gmap-circle 
+      center="circle.center"
+      radius="circle.radius"
+      stroke="circle.stroke"
+      fill="circle.fill"
+      draggable="circle.draggable"
+      editable="circle.editable"
+    ></ui-gmap-circle>
+
+	</ui-gmap-google-map>
+    <p class="padding">Mapa general</p>
   </ion-content>
 </ion-view>

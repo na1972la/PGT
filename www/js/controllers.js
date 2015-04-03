@@ -1,4 +1,43 @@
-angular.module('pgt.controllers', [])
+angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
+
+.controller('MapCtrl', function($scope) {
+  $scope.map = {
+    center: {
+        latitude:  25.675769,
+        longitude: -100.239579
+      },
+      zoom: 16,
+      options: {
+        scrollwheel: false,
+        minZoom: 12,
+        maxZoom: 18,
+        streetViewControl: false,
+        rotateControl: false,
+        panControl: false,
+        draggable: true
+      },
+      control: {}
+  };
+
+  $scope.circle = {
+    center: {
+        latitude: 25.675769,
+        longitude: -100.239759
+    },
+    radius: 300,
+    stroke: {
+        color: '#29dd12',
+        weight: 2,
+        opacity: 1
+    },
+    fill: {
+        color: '#ffffff',
+        opacity: 0.15
+    },
+    draggable: false,
+    editable: false
+  };
+})
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
   // Form data for the login modal
