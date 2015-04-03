@@ -97,8 +97,8 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     imagen: "3"
   },
   {
-    titulo: "Noticia 1",
-    sub: "Subtitulo 1",
+    titulo: "Noticia 4",
+    sub: "Subtitulo 4",
     imagen: "1"
   },
   ];
