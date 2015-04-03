@@ -1,7 +1,7 @@
 <ion-view view-title="Noticias">
 	<ion-content class="padding" >
 		<ion-refresher on-refresh="actualizar()" pulling-text="Deslice hacia abajo para actualizar..."></ion-refresher>
-		<div class="list card" ng-repeat="noticia in noticias | orderBy: '-titulo'">
+		<div class="list card" ng-repeat="noticia in noticias | orderBy: '-id'">
 
 			<div class="item item-avatar">
 				<img src="img/stock1.jpg">

@@ -29,19 +29,15 @@ $royal: #cd5d1e;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
-
-.angular-google-map-container { 
-	height: 300px; 
-	margin-top: 50px;
-}
-
 .slider { height: 100%; text-align: center }
 .scroll { height: 100% }
 .box {
 	height: 100%;
 	padding: 33% 10px 0 10px;
 }
-.slider .pro1 {
+.slider .pro1,
+.slider .pro3,
+.slider .pro5 {
 	background-color: $royal;
 }
 

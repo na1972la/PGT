@@ -14,15 +14,16 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
         streetViewControl: false,
         rotateControl: false,
         panControl: false,
-        draggable: true
+        draggable: true,
+        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
       },
       control: {}
   };
 
   $scope.circle = {
     center: {
-        latitude: $scope.map.center.latitude,
-        longitude: $scope.map.center.longitude
+      latitude: $stateParams.lat,
+      longitude: $stateParams.lng
     },
     radius: 50,
     stroke: {
@@ -86,21 +87,25 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 .controller('NoticiasCtrl', function($scope, $http) {
   $scope.noticias = [
   {
+    id: 1,
     titulo: "Noticia 1",
     sub: "Subtitulo 1",
     imagen: "1"
   },
   {
+    id: 2,
     titulo: "Noticia 2",
     sub: "Subtitulo 2",
     imagen: "2"
   },
   {
+    id: 3,
     titulo: "Noticia 3",
     sub: "Subtitulo 3",
     imagen: "3"
   },
   {
+    id: 4,
     titulo: "Noticia 4",
     sub: "Subtitulo 4",
     imagen: "1"
@@ -110,6 +115,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   $scope.actualizar = function() {
     var actual = $scope.noticias.length + 1;
     var noti = {
+      id: actual,
       titulo: "Noticia " + actual,
       sub: "Subtítulo " + actual,
       imagen: "2"

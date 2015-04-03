@@ -7603,10 +7603,6 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
-.angular-google-map-container {
-  height: 300px;
-  margin-top: 50px; }
-
 .slider {
   height: 100%;
   text-align: center; }
@@ -7618,7 +7614,7 @@ a.button {
   height: 100%;
   padding: 33% 10px 0 10px; }
 
-.slider .pro1 {
+.slider .pro1, .slider .pro3, .slider .pro5 {
   background-color: #cd5d1e; }
 
 .img-responsive {

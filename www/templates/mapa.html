@@ -1,17 +1,37 @@
 <ion-view view-title="Mapa">
-  <ion-content>
-    <ui-gmap-google-map center='map.center' zoom='map.zoom'>
-    
-    <ui-gmap-circle 
-      center="map.center"
-      radius="circle.radius"
-      stroke="circle.stroke"
-      fill="circle.fill"
-      draggable="circle.draggable"
-      editable="circle.editable"
-    ></ui-gmap-circle>
+  
+  <style>
+  div.box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #78d2d8;
+    padding: 0;
+    height: 100%;
+  }
+  .angular-google-map,
+  .angular-google-map-container { 
+    height: inherit;
+  }
+  </style>
 
-	</ui-gmap-google-map>
+  <ion-content>
+    <div class="box">
+        <ui-gmap-google-map center='map.center' zoom='map.zoom' options="map.options">
+        
+        <ui-gmap-circle 
+          center="circle.center"
+          radius="circle.radius"
+          stroke="circle.stroke"
+          fill="circle.fill"
+          draggable="circle.draggable"
+          editable="circle.editable"
+        ></ui-gmap-circle>
+    	
+      </ui-gmap-google-map>
+    </div>
     <p class="padding">{{idea}}</p>
     <p class="padding">Mapa general</p>
   </ion-content>
