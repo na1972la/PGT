@@ -7616,7 +7616,7 @@ a.button {
 
 .box {
   height: 100%;
-  padding: 35% 10px 0 10px; }
+  padding: 33% 10px 0 10px; }
 
 .slider .pro1 {
   background-color: #cd5d1e; }
@@ -7624,3 +7624,12 @@ a.button {
 .img-responsive {
   width: 100%;
   height: auto; }
+
+i.icon {
+  font-size: 1.5rem; }
+  i.icon:after {
+    content: " ";
+    margin-right: 3px; }
+
+.popup-container .popup {
+  background-color: rgba(255, 255, 255, 0.95); }

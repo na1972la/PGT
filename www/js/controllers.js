@@ -39,7 +39,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   };
 })
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, $ionicPopup) {
   // Form data for the login modal
   $scope.loginData = {};
 
@@ -51,12 +51,19 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   });
 
   // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
+  $scope.closeAbout = function() {
     $scope.modal.hide();
   };
 
+  $scope.showAbout = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Acerca de',
+     templateUrl: "templates/acerca_de.html"
+   });
+  }
+
   // Open the login modal
-  $scope.login = function() {
+  $scope.about = function() {
     $scope.modal.show();
   };
 
@@ -67,7 +74,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     // Simulate a login delay. Remove this and replace with your login
     // code if using a login system
     $timeout(function() {
-      $scope.closeLogin();
+      $scope.closeAbout();
     }, 1000);
   };
 })
@@ -83,5 +90,34 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('NoticiasCtrl', function($scope, $http) {
+  $scope.noticias = [
+  {
+    titulo: "Noticia 1",
+    sub: "Subtitulo 1",
+    imagen: "1"
+  },
+  {
+    titulo: "Noticia 2",
+    sub: "Subtitulo 2",
+    imagen: "2"
+  },
+  {
+    titulo: "Noticia 3",
+    sub: "Subtitulo 3",
+    imagen: "3"
+  },
+  {
+    titulo: "Noticia 1",
+    sub: "Subtitulo 1",
+    imagen: "1"
+  },
+  ];
 });
+
+
+
+
+
+
+

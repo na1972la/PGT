@@ -48,11 +48,30 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     }
   })
 
+  .state('app.noticias', {
+    url: "/noticias",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/noticias.html",
+        controller: 'NoticiasCtrl'
+      }
+    }
+  })
+
   .state('app.bio', {
     url: "/bio",
     views: {
       'menuContent': {
         templateUrl: "templates/bio.html"
+      }
+    }
+  })
+
+  .state('app.trayectoria', {
+    url: "/bio/trayectoria",
+    views: {
+      "menuContent": {
+        templateUrl: "templates/trayectoria.html"
       }
     }
   })
@@ -67,42 +86,33 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     }
   })
 
-  .state('app.search', {
-    url: "/search",
+  .state('app.mision', {
+    url: "/bio/mision",
     views: {
-      'menuContent': {
-        templateUrl: "templates/search.html"
+      "menuContent": {
+        templateUrl: "templates/bio/mision.html"
       }
     }
   })
 
-  .state('app.browse', {
-    url: "/browse",
+  .state('app.vision', {
+    url: "/bio/vision",
     views: {
-      'menuContent': {
-        templateUrl: "templates/browse.html"
+      "menuContent": {
+        templateUrl: "templates/bio/vision.html"
       }
     }
   })
-    .state('app.playlists', {
-      url: "/playlists",
-      views: {
-        'menuContent': {
-          templateUrl: "templates/playlists.html",
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: "/playlists/:playlistId",
+  .state('app.objetivo', {
+    url: "/bio/objetivo",
     views: {
-      'menuContent': {
-        templateUrl: "templates/playlist.html",
-        controller: 'PlaylistCtrl'
+      "menuContent": {
+        templateUrl: "templates/bio/objetivo.html"
       }
     }
-  });
+  })
+  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/index');
 });
