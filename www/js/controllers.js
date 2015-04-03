@@ -1,48 +1,127 @@
-angular.module('starter.controllers', [])
+angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
-  // Form data for the login modal
-  $scope.loginData = {};
-
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
-
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
+.controller('MapCtrl', function($scope, $state, $stateParams) {
+  $scope.map = {
+    center: {
+        latitude:  25.675769,
+        longitude: -100.239579
+      },
+      zoom: 16,
+      options: {
+        scrollwheel: false,
+        minZoom: 12,
+        maxZoom: 18,
+        streetViewControl: false,
+        rotateControl: false,
+        panControl: false,
+        draggable: true
+      },
+      control: {}
   };
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
+  $scope.circle = {
+    center: {
+        latitude: $scope.map.center.latitude,
+        longitude: $scope.map.center.longitude
+    },
+    radius: 50,
+    stroke: {
+        color: '#29dd12',
+        weight: 2,
+        opacity: 1
+    },
+    fill: {
+        color: '#ffffff',
+        opacity: 0.15
+    },
+    draggable: false,
+    editable: false
   };
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
+  console.log("Param: " + $stateParams.lat);
+  console.log("Param: " + $stateParams.lng);
+  $scope.map.center.latitude = $stateParams.lat;
+  $scope.map.center.longitude = $stateParams.lng;
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
 })
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+.controller('AgendaCtrl', function($scope) {
+  $scope.lugares = [
+  {
+    idea: 1,
+    direccion: "La Pastora",
+    latitude:  25.668212, 
+    longitude: -100.248840
+  },
+  { 
+    idea: 2,
+    direccion: "Hosp. Materno Infantil",
+    latitude:  25.694096, 
+    longitude: -100.222575
+  },
+  { 
+    idea: 3,
+    direccion: "Facultad de Artes Visuales",
+    latitude:  25.614009, 
+    longitude: -100.277443
+  }
   ];
 })
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller('AppCtrl', function($scope, $timeout, $ionicPopup) {
+
+  $scope.showAbout = function() {
+   var alertPopup = $ionicPopup.alert({
+     title: 'Acerca de',
+     templateUrl: "templates/acerca_de.html"
+   });
+  }
+
+  // Open the login modal
+  $scope.about = function() {
+    $scope.modal.show();
+  };
+})
+
+.controller('NoticiasCtrl', function($scope, $http) {
+  $scope.noticias = [
+  {
+    titulo: "Noticia 1",
+    sub: "Subtitulo 1",
+    imagen: "1"
+  },
+  {
+    titulo: "Noticia 2",
+    sub: "Subtitulo 2",
+    imagen: "2"
+  },
+  {
+    titulo: "Noticia 3",
+    sub: "Subtitulo 3",
+    imagen: "3"
+  },
+  {
+    titulo: "Noticia 4",
+    sub: "Subtitulo 4",
+    imagen: "1"
+  },
+  ];
+
+  $scope.actualizar = function() {
+    var actual = $scope.noticias.length + 1;
+    var noti = {
+      titulo: "Noticia " + actual,
+      sub: "Subtítulo " + actual,
+      imagen: "2"
+    };
+    $scope.noticias.push(noti);
+    $scope.$broadcast('scroll.refreshComplete');
+  }
 });
+
+
+
+
+
+
+

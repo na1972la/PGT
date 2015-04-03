@@ -1,0 +1,21 @@
+<ion-view view-title="Noticias">
+	<ion-content class="padding" >
+		<ion-refresher on-refresh="actualizar()" pulling-text="Deslice hacia abajo para actualizar..."></ion-refresher>
+		<div class="list card" ng-repeat="noticia in noticias | orderBy: '-titulo'">
+
+			<div class="item item-avatar">
+				<img src="img/stock1.jpg">
+				<h2>{{noticia.titulo}}</h2>
+				<p>{{noticia.sub}}</p>
+			</div>
+
+			<!-- <div class="item item-image">
+				<img src="img/stock{{noticia.imagen}}.jpg">
+			</div> -->
+			<div class="item item-text-wrap">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis rerum, tempora, ea non beatae laboriosam. Architecto tenetur autem accusantium ipsa maiores dicta repudiandae asperiores, incidunt minus eum veritatis ipsum facilis!
+			</div>
+
+		</div>
+	</ion-content>		
+</ion-view>

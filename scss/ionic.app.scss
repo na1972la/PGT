@@ -18,6 +18,46 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+
+
+
+// Azul que me pasó Mario
+$positive: #2e3e6b;
+// Naranja que me pasó Mario
+$royal: #cd5d1e;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+
+.angular-google-map-container { 
+	height: 300px; 
+	margin-top: 50px;
+}
+
+.slider { height: 100%; text-align: center }
+.scroll { height: 100% }
+.box {
+	height: 100%;
+	padding: 33% 10px 0 10px;
+}
+.slider .pro1 {
+	background-color: $royal;
+}
+
+.img-responsive {
+	width: 100%;
+	height: auto;
+}
+
+i.icon {
+	font-size: 1.5rem;
+	&:after {
+		content: " ";
+		margin-right: 3px;
+	}
+}
+
+.popup-container .popup {
+	background-color: rgba(255,255,255,0.95);
+}
