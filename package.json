@@ -14,9 +14,14 @@
     "gulp-util": "^2.2.14",
     "shelljs": "^0.3.0"
   },
-  "cordovaPlugins": [],
+  "cordovaPlugins": [
+    "org.apache.cordova.splashscreen"
+  ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    "ios",
+    {
+      "platform": "android",
+      "locator": "./engine/cordova-android-c0.6.1/"
+    }
   ]
 }
