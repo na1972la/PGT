@@ -15,6 +15,34 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+@-webkit-keyframes moveBg {
+  from {
+    background-position: 0% 0%; }
+
+  to {
+    background-position: 100% 0%; } }
+
+@keyframes moveBg {
+  from {
+    background-position: 0% 0%; }
+
+  to {
+    background-position: 100% 0%; } }
+
+@-webkit-keyframes moveBwBg {
+  from {
+    background-position: 100% 0%; }
+
+  to {
+    background-position: 0% 0%; } }
+
+@keyframes moveBwBg {
+  from {
+    background-position: 100% 0%; }
+
+  to {
+    background-position: 0% 0%; } }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7612,10 +7640,67 @@ a.button {
 
 .box {
   height: 100%;
-  padding: 35% 10px 0 10px; }
+  display: table; }
+  .box h1 {
+    display: table-cell;
+    vertical-align: middle; }
+    .box h1 span {
+      background-color: rgba(255, 255, 255, 0.6); }
 
-.slider .pro1, .slider .pro3, .slider .pro5 {
-  background-color: #cd5d1e; }
+.slider .pro1 {
+  background-image: url('../img/propuestas/1.jpg');
+  -webkit-animation: moveBg;
+  animation: moveBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro2 {
+  background-image: url('../img/propuestas/2.jpg');
+  -webkit-animation: moveBg;
+  animation: moveBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro3 {
+  background-image: url('../img/propuestas/3.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro4 {
+  background-image: url('../img/propuestas/4.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro5 {
+  background-image: url('../img/propuestas/5.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro6 {
+  background-image: url('../img/propuestas/6.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 6.1s;
+  animation-duration: 6.1s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
 
 .img-responsive {
   width: 100%;

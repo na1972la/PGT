@@ -18,6 +18,40 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+@-webkit-keyframes moveBg { 
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+
+@keyframes moveBg {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+@-webkit-keyframes moveBwBg { 
+    from {
+        background-position: 100% 0%;
+    }
+    to {
+        background-position:0% 0%;
+    }
+}
+
+@keyframes moveBwBg {
+    from {
+        background-position: 100% 0%;
+    }
+    to {
+        background-position:0% 0%;
+    }
+}
 
 
 
@@ -33,12 +67,58 @@ $royal: #cd5d1e;
 .scroll { height: 100% }
 .box {
 	height: 100%;
-	padding: 35% 10px 0 10px;
+	display: table;
+	h1 {
+		display: table-cell;
+		vertical-align: middle;
+		span {
+			background-color: rgba(255,255,255, 0.6);
+		}
+	}
 }
-.slider .pro1,
-.slider .pro3,
-.slider .pro5 {
-	background-color: $royal;
+.slider {
+	.pro1 {
+		background-image: url('../img/propuestas/1.jpg');
+		@include animation(moveBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro2 {
+		background-image: url('../img/propuestas/2.jpg');
+		@include animation(moveBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro3 {
+		background-image: url('../img/propuestas/3.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro4 {
+		background-image: url('../img/propuestas/4.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro5 {
+		background-image: url('../img/propuestas/5.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro6 {
+		background-image: url('../img/propuestas/6.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(6.1s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
 }
 
 .img-responsive {
