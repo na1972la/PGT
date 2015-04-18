@@ -7649,10 +7649,10 @@ a.button {
 
 .slider .pro1 {
   background-image: url('../img/propuestas/1.jpg');
-  -webkit-animation: moveBg;
-  animation: moveBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }
@@ -7660,8 +7660,8 @@ a.button {
   background-image: url('../img/propuestas/2.jpg');
   -webkit-animation: moveBg;
   animation: moveBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }
@@ -7669,8 +7669,8 @@ a.button {
   background-image: url('../img/propuestas/3.jpg');
   -webkit-animation: moveBwBg;
   animation: moveBwBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }
@@ -7678,8 +7678,8 @@ a.button {
   background-image: url('../img/propuestas/4.jpg');
   -webkit-animation: moveBwBg;
   animation: moveBwBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }
@@ -7687,8 +7687,8 @@ a.button {
   background-image: url('../img/propuestas/5.jpg');
   -webkit-animation: moveBwBg;
   animation: moveBwBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }
@@ -7696,8 +7696,8 @@ a.button {
   background-image: url('../img/propuestas/6.jpg');
   -webkit-animation: moveBwBg;
   animation: moveBwBg;
-  -webkit-animation-duration: 6.1s;
-  animation-duration: 6.1s;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
   background-repeat: no-repeat; }

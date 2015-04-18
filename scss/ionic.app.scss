@@ -79,43 +79,43 @@ $royal: #cd5d1e;
 .slider {
 	.pro1 {
 		background-image: url('../img/propuestas/1.jpg');
-		@include animation(moveBg);
-		@include animation-duration(6.1s);
+		@include animation(moveBwBg);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
 	.pro2 {
 		background-image: url('../img/propuestas/2.jpg');
 		@include animation(moveBg);
-		@include animation-duration(6.1s);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
 	.pro3 {
 		background-image: url('../img/propuestas/3.jpg');
 		@include animation(moveBwBg);
-		@include animation-duration(6.1s);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
 	.pro4 {
 		background-image: url('../img/propuestas/4.jpg');
 		@include animation(moveBwBg);
-		@include animation-duration(6.1s);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
 	.pro5 {
 		background-image: url('../img/propuestas/5.jpg');
 		@include animation(moveBwBg);
-		@include animation-duration(6.1s);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
 	.pro6 {
 		background-image: url('../img/propuestas/6.jpg');
 		@include animation(moveBwBg);
-		@include animation-duration(6.1s);
+		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
 	}
