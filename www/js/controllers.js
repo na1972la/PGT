@@ -97,47 +97,46 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   };
 })
 
-.controller('NoticiasCtrl', function($scope, $http) {
+.factory('Noticias', ['$http', '$ionicPopup', function($http, $ionicPopup){
+  return {
+    getLast: function() {
+      $http.get("http://104.236.249.81/jason.php?action=getLast")
+        .success(function(data) {
+          console.log(data);
+          window.localStorage['lastUpdate'] = data.last;
+          return data.last;
+        })
+        .error(function(data) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Error de conexión',
+            templateUrl: "templates/error_internet.html"
+          });
+          return false;
+        });
+    }
+  }
+}])
+
+.controller('NoticiasCtrl', function($scope, $http, Noticias) {
   $scope.noticias = [
   {
     id: 1,
     titulo: "Noticia 1",
     sub: "Subtitulo 1",
     imagen: "1"
-  },
-  {
-    id: 2,
-    titulo: "Noticia 2",
-    sub: "Subtitulo 2",
-    imagen: "2"
-  },
-  {
-    id: 3,
-    titulo: "Noticia 3",
-    sub: "Subtitulo 3",
-    imagen: "3"
-  },
-  {
-    id: 4,
-    titulo: "Noticia 4",
-    sub: "Subtitulo 4",
-    imagen: "1"
-  },
+  }
   ];
 
+  $scope.lastUpdate = window.localStorage['lastUpdate'];
+
+  $scope.derp = "nop";
+
   $scope.actualizar = function() {
-    var actual = $scope.noticias.length + 1;
-    var noti = {
-      id: actual,
-      titulo: "Noticia " + actual,
-      sub: "Subtítulo " + actual,
-      imagen: "2"
-    };
-    $scope.noticias.push(noti);
+    $scope.derp = "yup";
+    $scope.lastUpdate = Noticias.getLast();
     $scope.$broadcast('scroll.refreshComplete');
   }
 });
-
 
 
 

@@ -95,33 +95,6 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
       }
     }
   })
-
-  .state('app.mision', {
-    url: "/bio/mision",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/mision.html"
-      }
-    }
-  })
-
-  .state('app.vision', {
-    url: "/bio/vision",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/vision.html"
-      }
-    }
-  })
-
-  .state('app.objetivo', {
-    url: "/bio/objetivo",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/objetivo.html"
-      }
-    }
-  })
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/index');
