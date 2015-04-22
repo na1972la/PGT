@@ -87,7 +87,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   $scope.showAbout = function() {
    var alertPopup = $ionicPopup.alert({
      title: 'Acerca de',
-     templateUrl: "templates/acerca_de.html"
+     templateUrl: "templates/popups/acerca_de.html"
    });
   }
 
@@ -101,18 +101,25 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   return {
     getLast: function() {
       $http.get("http://104.236.249.81/jason.php?action=getLast")
+
+        // Si funciona la llamada...
         .success(function(data) {
           console.log(data);
           window.localStorage['lastUpdate'] = data.last;
           return data.last;
         })
+
+        // ...Y si no...
         .error(function(data) {
           var alertPopup = $ionicPopup.alert({
             title: 'Error de conexión',
-            templateUrl: "templates/error_internet.html"
+            templateUrl: "templates/popups/error_internet.html"
           });
           return false;
         });
+    }, //  getLast()
+    all: function() {
+      $http.get("");
     }
   }
 }])
