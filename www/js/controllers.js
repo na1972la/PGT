@@ -1,5 +1,64 @@
 angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
+.factory('Noticias', ['$http', '$ionicPopup', function($http, $ionicPopup){
+  return {
+    getAll: function() {
+      $http.get("http://104.236.249.81/jason.php?action=all")
+
+        // Si funciona la llamada...
+        .success(function(data) {
+          console.log(data);
+          window.localStorage['noticias'] = angular.toJson(data);
+        })
+
+        // ...Y si no...
+        .error(function(data) {
+          var alerta = $ionicPopup.alert({
+            title: "Error al extraer la noticias",
+            template: "No pude traerlas conmigo. Lo siento, te he fallado."
+          });
+        })
+    },
+    getLast: function() {
+      $http.get("http://104.236.249.81/jason.php?action=getLast")
+
+        // Si funciona la llamada...
+        .success(function(data) {
+          console.log(data);
+          window.localStorage['lastUpdate'] = data.last;
+          window.localStorage['lastNoticia'] = data.ID
+          return data.last;
+        })
+
+        // ...Y si no...
+        .error(function(data) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Error de conexión',
+            templateUrl: "templates/popups/error_internet.html"
+          });
+          return false;
+        });
+    }, //  getLast()
+    getNews: function() {
+      var last = window.localStorage['lastUpdate'];
+      last = last.replace(/ /g, '_');
+
+      $http.get("http://104.236.249.81/jason.php?action=get&lastUpdate="+last)
+
+        // Si funciona la llamada...
+        .success(function(data) {
+
+        })
+
+        // ...Y si no...
+        .error(function(data) {
+
+        });
+
+    }
+  }
+}])
+
 .controller('MapCtrl', function($scope, $state, $stateParams) {
   $scope.map = {
     center: {
@@ -82,7 +141,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   ];
 })
 
-.controller('AppCtrl', function($scope, $timeout, $ionicPopup) {
+.controller('AppCtrl', function($scope, $timeout, $ionicPopup, Noticias) {
 
   $scope.showAbout = function() {
    var alertPopup = $ionicPopup.alert({
@@ -97,50 +156,33 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   };
 })
 
-.factory('Noticias', ['$http', '$ionicPopup', function($http, $ionicPopup){
-  return {
-    getLast: function() {
-      $http.get("http://104.236.249.81/jason.php?action=getLast")
-
-        // Si funciona la llamada...
-        .success(function(data) {
-          console.log(data);
-          window.localStorage['lastUpdate'] = data.last;
-          return data.last;
-        })
-
-        // ...Y si no...
-        .error(function(data) {
-          var alertPopup = $ionicPopup.alert({
-            title: 'Error de conexión',
-            templateUrl: "templates/popups/error_internet.html"
-          });
-          return false;
-        });
-    }, //  getLast()
-    all: function() {
-      $http.get("");
-    }
-  }
-}])
 
 .controller('NoticiasCtrl', function($scope, $http, Noticias) {
-  $scope.noticias = [
-  {
-    id: 1,
-    titulo: "Noticia 1",
-    sub: "Subtitulo 1",
-    imagen: "1"
-  }
-  ];
 
+  /**
+   * Variables de actualización:
+   *
+   *  lastUpdate_local = Ultima actualización local; la última vez que la App pidió actualizarse.
+   *
+   *  lastUpdate = Última vez que el servidor se actualizó.
+   * 
+   */
+
+  $scope.noticias = angular.fromJson(window.localStorage['noticias']);
   $scope.lastUpdate = window.localStorage['lastUpdate'];
 
-  $scope.derp = "nop";
-
   $scope.actualizar = function() {
-    $scope.derp = "yup";
-    $scope.lastUpdate = Noticias.getLast();
+
+    $scope.lastUpdate_local = new Date();
+    window.localStorage['lastUpdate_local'] = $scope.lastUpdate_local;
+
+    // Get the news
+    Noticias.getAll();
+
+    // Update local $scope
+    $scope.noticias = angular.fromJson(window.localStorage['noticias']);
+
+    // End 
     $scope.$broadcast('scroll.refreshComplete');
   }
 });
