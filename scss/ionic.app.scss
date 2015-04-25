@@ -93,7 +93,7 @@ $royal: #cd5d1e;
 	}
 	.pro3 {
 		background-image: url('../img/propuestas/3.jpg');
-		@include animation(moveBwBg);
+		@include animation(moveBg);
 		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;
@@ -114,7 +114,7 @@ $royal: #cd5d1e;
 	}
 	.pro6 {
 		background-image: url('../img/propuestas/6.jpg');
-		@include animation(moveBwBg);
+		@include animation(moveBg);
 		@include animation-duration(5.9s);
 		@include animation-iteration-count(infinite);
 		background-repeat: no-repeat;

@@ -7667,8 +7667,8 @@ a.button {
   background-repeat: no-repeat; }
 .slider .pro3 {
   background-image: url('../img/propuestas/3.jpg');
-  -webkit-animation: moveBwBg;
-  animation: moveBwBg;
+  -webkit-animation: moveBg;
+  animation: moveBg;
   -webkit-animation-duration: 5.9s;
   animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
@@ -7694,8 +7694,8 @@ a.button {
   background-repeat: no-repeat; }
 .slider .pro6 {
   background-image: url('../img/propuestas/6.jpg');
-  -webkit-animation: moveBwBg;
-  animation: moveBwBg;
+  -webkit-animation: moveBg;
+  animation: moveBg;
   -webkit-animation-duration: 5.9s;
   animation-duration: 5.9s;
   -webkit-animation-iteration-count: infinite;
