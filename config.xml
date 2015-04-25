@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.pgt615801" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>pgt</name>
+  <name>PGT</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Aplicación móvil del candidato a la diputación federal del distrito 11, Pedro Garza Treviño.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="hola@h-salazar.com" href="http://hslzr.com/">
+      HSLZR
     </author>
   <content src="index.html"/>
   <access origin="*"/>
