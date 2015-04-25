@@ -58,6 +58,16 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     }
   })
 
+  .state('app.noticia', {
+    url: "/noticia/:id",
+    views: {
+      "menuContent": {
+        templateUrl: "templates/noticia.html",
+        controller: 'NotiCtrl'
+      }
+    }
+  })
+
   .state('app.bio', {
     url: "/bio",
     views: {

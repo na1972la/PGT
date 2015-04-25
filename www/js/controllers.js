@@ -14,10 +14,15 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
         // ...Y si no...
         .error(function(data) {
           var alerta = $ionicPopup.alert({
-            title: "Error al extraer la noticias",
-            template: "No pude traerlas conmigo. Lo siento, te he fallado."
+            title: "Error de conexión",
+            templateUrl: "templates/popups/error_internet.html"
           });
         })
+    },
+    getOne: function(id) {
+      var noticia = angular.fromJson(window.localStorage['noticias']);
+
+      return noticia[id];
     },
     getLast: function() {
       $http.get("http://104.236.249.81/jason.php?action=getLast")
@@ -173,6 +178,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
   $scope.actualizar = function() {
 
+    // Set last Updated
     $scope.lastUpdate_local = new Date();
     window.localStorage['lastUpdate_local'] = $scope.lastUpdate_local;
 
@@ -185,7 +191,18 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     // End 
     $scope.$broadcast('scroll.refreshComplete');
   }
+})
+
+.controller('NotiCtrl', function($scope, Noticias, $stateParams) {
+  
+  $scope.recibido = $stateParams.id;
+
+  $scope.noticia = Noticias.getOne($scope.recibido);
+
+  $scope.noticia.date = $scope.noticia.date.substr(0,10);
+
 });
+
 
 
 

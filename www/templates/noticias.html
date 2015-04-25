@@ -1,14 +1,13 @@
 <ion-view view-title="Noticias">
-	<ion-content class="padding" >
+	<ion-content>
 		<ion-refresher on-refresh="actualizar()" pulling-text="Deslice hacia abajo para actualizar..."></ion-refresher>
 		
-
-		<div class="list card" ng-repeat="noti in noticias track by $index ">
-			<div class="item item-avatar">
-				<h2>{{noti.title}}</h2>
-				<p>{{noti.sub}}</p>
-			</div>
-			<div class="item item-text-wrap" ng-bind-html="noti.content"></div>
+		<div class="list">
+			<a ng-href="#/app/noticia/{{$index}}" class="item item-icon-right" ng-repeat="noti in noticias track by $index">
+				<h2 ng-bind-html="noti.title"></h2>
+				<p>{{noti.date}}</p>
+				<i class="icon ion-ios-arrow-right"></i>
+			</a>
 		</div>
 	</ion-content>		
 </ion-view>
