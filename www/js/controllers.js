@@ -42,24 +42,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
             templateUrl: "templates/popups/error_internet.html"
           });
           return false;
-        });
-    }, //  getLast()
-    getNews: function() {
-      var last = window.localStorage['lastUpdate'];
-      last = last.replace(/ /g, '_');
-
-      $http.get("http://104.236.249.81/jason.php?action=get&lastUpdate="+last)
-
-        // Si funciona la llamada...
-        .success(function(data) {
-
-        })
-
-        // ...Y si no...
-        .error(function(data) {
-
-        });
-
+      });
     }
   }
 }])
