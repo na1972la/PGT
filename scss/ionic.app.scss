@@ -63,16 +63,31 @@ $royal: #cd5d1e;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/avenir.otf');
+}
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/avenir-bold.otf');
+}
+
+.avenir {
+	font-family: 'Avenir' Helvetica, sans-serif;
+}
+
 .slider { height: 100%; text-align: center }
 .scroll { height: 100% }
 .box {
 	height: 100%;
 	display: table;
-	h1 {
+	h2 {
 		display: table-cell;
 		vertical-align: middle;
 		span {
-			background-color: rgba(255,255,255, 0.6);
+			color: white;
+			text-shadow: 2px 0px 3px rgba(0,0,0,0.5), -2px 0px 3px rgba(0,0,0,0.5), 0px -2px 3px rgba(0,0,0,0.5), 0px 2px 3px rgba(0,0,0,0.5);
 		}
 	}
 }
