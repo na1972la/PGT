@@ -7642,6 +7642,17 @@ a.button {
 .avenir {
   font-family: 'Avenir' Helvetica, sans-serif; }
 
+ul#trayectoria li.item-divider {
+  background-color: #2e3e6b;
+  color: white;
+  border-left: none; }
+ul#trayectoria li.item-text-wrap code {
+  font-size: 80%; }
+ul#trayectoria li.item-text-wrap:nth-child(odd) {
+  border-left: 10px solid #2e3e6b; }
+ul#trayectoria li.item-text-wrap:nth-child(even) {
+  border-left: 10px solid #cd5d1e; }
+
 .slider {
   height: 100%;
   text-align: center; }

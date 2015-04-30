@@ -77,6 +77,26 @@ $royal: #cd5d1e;
 	font-family: 'Avenir' Helvetica, sans-serif;
 }
 
+ul#trayectoria {
+	li.item-divider {
+		background-color: $positive;
+		color: white;
+		border-left: none;
+	}
+	
+	li.item-text-wrap {
+		code {
+			font-size: 80%;
+		}
+		&:nth-child(odd) {
+			border-left: 10px solid $positive;
+		}
+		&:nth-child(even) {
+			border-left: 10px solid $royal;
+		}
+	}
+}
+
 .slider { height: 100%; text-align: center }
 .scroll { height: 100% }
 .box {
