@@ -1,10 +1,11 @@
 <ion-view view-title="Agenda">
 	<ion-content>
+		<ion-refresher on-refresh="actualizar()" pulling-text="Deslice hacia abajo para actualizar..."></ion-refresher>
+		<h1 class="avenir text-center padding"><span style="color: #2e3e6b;">Nuestro</span> <span style="color: #cd5d1e;">recorrido</span></h1>
 		<div class="list">
-
-			<a ng-repeat="lugar in lugares" class="item item-icon-right" ui-sref="app.mapa({lat: '{{lugar.latitude}}', lng: '{{lugar.longitude}}'})">
+			<a ng-repeat="lugar in lugares" class="item item-icon-right" ui-sref="app.mapa({lat: '{{lugar.coord.lat}}', lng: '{{lugar.coord.lon}}'})">
 			<i class="icon ion-ios-arrow-forward"></i>
-			{{lugar.direccion}}
+			<h2>{{lugar.nombre}}</h2> <small>{{lugar.fecha.dia}}, {{lugar.fecha.hora}}</small>
 			</a>
 		</div>
 	</ion-content>

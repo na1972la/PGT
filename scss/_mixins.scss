@@ -1,0 +1,27 @@
+@mixin animation($properties) {
+	-webkit-animation: $properties;
+	-moz-animation: $properties;
+	-ms-animation: $properties;
+	-o-animation: $properties;
+	animation: $properties;
+}
+
+@-webkit-keyframes moveBg { /* Safari and Chrome */
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+
+@keyframes moveBg { /* Safari and Chrome */
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+
+/* I think it works now... */

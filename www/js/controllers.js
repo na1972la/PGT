@@ -1,12 +1,78 @@
 angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
-.controller('MapCtrl', function($scope, $state, $stateParams) {
+.factory('Noticias', function($http, $ionicPopup){
+  return {
+    getAll: function() {
+      $http.get("http://104.236.249.81/jason.php?action=all")
+
+        // Si funciona la llamada...
+        .success(function(data) {
+          console.log(data);
+          window.localStorage['noticias'] = angular.toJson(data);
+        })
+
+        // ...Y si no...
+        .error(function(data) {
+          var alerta = $ionicPopup.alert({
+            title: "Error de conexión",
+            templateUrl: "templates/popups/error_internet.html"
+          });
+        })
+    },
+    getOne: function(id) {
+      var noticia = angular.fromJson(window.localStorage['noticias']);
+
+      return noticia[id];
+    },
+    getLast: function() {
+      $http.get("http://104.236.249.81/jason.php?action=getLast")
+
+        // Si funciona la llamada...
+        .success(function(data) {
+          console.log(data);
+          window.localStorage['lastUpdate'] = data.last;
+          window.localStorage['lastNoticia'] = data.ID
+          return data.last;
+        })
+
+        // ...Y si no...
+        .error(function(data) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Error de conexión',
+            templateUrl: "templates/popups/error_internet.html"
+          });
+          return false;
+      });
+    }
+  }
+})
+
+.factory('Agenda', ['$http', '$ionicPopup', function($http, $ionicPopup){
+  return {
+    getAgenda: function() {
+      $http.get("http://104.236.249.81/jason.php?action=agenda")
+
+        .success(function(data) {
+          window.localStorage['agenda'] = angular.toJson(data);
+          // return window.localStorage['agenda'];
+        })
+        .error(function(data) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Error de conexión',
+            templateUrl: "templates/popups/error_internet.html"
+          });
+        });
+    }
+  }
+}])
+
+.controller('MapCtrl', function($scope, $stateParams) {
   $scope.map = {
     center: {
         latitude:  25.675769,
         longitude: -100.239579
       },
-      zoom: 16,
+      zoom: 17,
       options: {
         scrollwheel: false,
         minZoom: 13,
@@ -14,8 +80,7 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
         streetViewControl: false,
         rotateControl: false,
         panControl: false,
-        draggable: true,
-        styles: [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
+        draggable: true
       },
       control: {}
   };
@@ -27,54 +92,44 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     },
     radius: 50,
     stroke: {
-        color: '#29dd12',
+        // color: '#29dd12',
+        color: '#cd5d1e',
         weight: 2,
         opacity: 1
     },
     fill: {
-        color: '#ffffff',
+        // color: '#ffffff',
+        color: '#cd5d1e',
         opacity: 0.15
     },
     draggable: false,
     editable: false
   };
 
-  console.log("Param: " + $stateParams.lat);
-  console.log("Param: " + $stateParams.lng);
+  console.log("Param: " + $stateParams.lat + ", " + $stateParams.lng);
   $scope.map.center.latitude = $stateParams.lat;
   $scope.map.center.longitude = $stateParams.lng;
 
 })
 
-.controller('AgendaCtrl', function($scope) {
-  $scope.lugares = [
-  {
-    idea: 1,
-    direccion: "La Pastora",
-    latitude:  25.668212, 
-    longitude: -100.248840
-  },
-  { 
-    idea: 2,
-    direccion: "Hosp. Materno Infantil",
-    latitude:  25.694096, 
-    longitude: -100.222575
-  },
-  { 
-    idea: 3,
-    direccion: "Facultad de Artes Visuales",
-    latitude:  25.614009, 
-    longitude: -100.277443
+.controller('AgendaCtrl', function($scope, Agenda) {
+
+  $scope.lugares = angular.fromJson(window.localStorage['agenda']);
+  
+  $scope.actualizar = function() {
+    Agenda.getAgenda();
+    $scope.lugares = angular.fromJson(window.localStorage['agenda']);
+    $scope.$broadcast('scroll.refreshComplete');
   }
-  ];
+
 })
 
-.controller('AppCtrl', function($scope, $timeout, $ionicPopup) {
+.controller('AppCtrl', function($scope, $timeout, $ionicPopup, Noticias) {
 
   $scope.showAbout = function() {
    var alertPopup = $ionicPopup.alert({
      title: 'Acerca de',
-     templateUrl: "templates/acerca_de.html"
+     templateUrl: "templates/popups/acerca_de.html"
    });
   }
 
@@ -84,45 +139,46 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
   };
 })
 
-.controller('NoticiasCtrl', function($scope, $http) {
-  $scope.noticias = [
-  {
-    id: 1,
-    titulo: "Noticia 1",
-    sub: "Subtitulo 1",
-    imagen: "1"
-  },
-  {
-    id: 2,
-    titulo: "Noticia 2",
-    sub: "Subtitulo 2",
-    imagen: "2"
-  },
-  {
-    id: 3,
-    titulo: "Noticia 3",
-    sub: "Subtitulo 3",
-    imagen: "3"
-  },
-  {
-    id: 4,
-    titulo: "Noticia 4",
-    sub: "Subtitulo 4",
-    imagen: "1"
-  },
-  ];
+
+.controller('NoticiasCtrl', function($scope, $http, Noticias) {
+
+  /**
+   * Variables de actualización:
+   *
+   *  lastUpdate_local = Ultima actualización local; la última vez que la App pidió actualizarse.
+   *
+   *  lastUpdate = Última vez que el servidor se actualizó.
+   * 
+   */
+
+  $scope.noticias = angular.fromJson(window.localStorage['noticias']);
+  $scope.lastUpdate = window.localStorage['lastUpdate'];
 
   $scope.actualizar = function() {
-    var actual = $scope.noticias.length + 1;
-    var noti = {
-      id: actual,
-      titulo: "Noticia " + actual,
-      sub: "Subtítulo " + actual,
-      imagen: "2"
-    };
-    $scope.noticias.push(noti);
+
+    // Set last Updated
+    $scope.lastUpdate_local = new Date();
+    window.localStorage['lastUpdate_local'] = $scope.lastUpdate_local;
+
+    // Get the news
+    Noticias.getAll();
+
+    // Update local $scope
+    $scope.noticias = angular.fromJson(window.localStorage['noticias']);
+
+    // End 
     $scope.$broadcast('scroll.refreshComplete');
   }
+})
+
+.controller('NotiCtrl', function($scope, Noticias, $stateParams) {
+  
+  $scope.recibido = $stateParams.id;
+
+  $scope.noticia = Noticias.getOne($scope.recibido);
+
+  $scope.noticia.date = $scope.noticia.date.substr(0,10);
+
 });
 
 

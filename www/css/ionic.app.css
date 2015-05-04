@@ -15,6 +15,34 @@ $assertive:                       #ef473a !default;
 $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
+@-webkit-keyframes moveBg {
+  from {
+    background-position: 0% 0%; }
+
+  to {
+    background-position: 100% 0%; } }
+
+@keyframes moveBg {
+  from {
+    background-position: 0% 0%; }
+
+  to {
+    background-position: 100% 0%; } }
+
+@-webkit-keyframes moveBwBg {
+  from {
+    background-position: 100% 0%; }
+
+  to {
+    background-position: 0% 0%; } }
+
+@keyframes moveBwBg {
+  from {
+    background-position: 100% 0%; }
+
+  to {
+    background-position: 0% 0%; } }
+
 /*!
   Ionicons, v2.0.1
   Created by Ben Sperry for the Ionic Framework, http://ionicons.com/
@@ -7603,6 +7631,28 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+@font-face {
+  font-family: 'Avenir';
+  src: url('fonts/avenir.otf'); }
+
+@font-face {
+  font-family: 'Avenir';
+  src: url('fonts/avenir-bold.otf'); }
+
+.avenir {
+  font-family: 'Avenir' Helvetica, sans-serif; }
+
+ul#trayectoria li.item-divider {
+  background-color: #2e3e6b;
+  color: white;
+  border-left: none; }
+ul#trayectoria li.item-text-wrap code {
+  font-size: 80%; }
+ul#trayectoria li.item-text-wrap:nth-child(odd) {
+  border-left: 10px solid #2e3e6b; }
+ul#trayectoria li.item-text-wrap:nth-child(even) {
+  border-left: 10px solid #cd5d1e; }
+
 .slider {
   height: 100%;
   text-align: center; }
@@ -7612,10 +7662,68 @@ a.button {
 
 .box {
   height: 100%;
-  padding: 35% 10px 0 10px; }
+  display: table; }
+  .box h2 {
+    display: table-cell;
+    vertical-align: middle; }
+    .box h2 span {
+      color: white;
+      text-shadow: 2px 0px 3px rgba(0, 0, 0, 0.5), -2px 0px 3px rgba(0, 0, 0, 0.5), 0px -2px 3px rgba(0, 0, 0, 0.5), 0px 2px 3px rgba(0, 0, 0, 0.5); }
 
-.slider .pro1, .slider .pro3, .slider .pro5 {
-  background-color: #cd5d1e; }
+.slider .pro1 {
+  background-image: url('../img/propuestas/1.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro2 {
+  background-image: url('../img/propuestas/2.jpg');
+  -webkit-animation: moveBg;
+  animation: moveBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro3 {
+  background-image: url('../img/propuestas/3.jpg');
+  -webkit-animation: moveBg;
+  animation: moveBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro4 {
+  background-image: url('../img/propuestas/4.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro5 {
+  background-image: url('../img/propuestas/5.jpg');
+  -webkit-animation: moveBwBg;
+  animation: moveBwBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
+.slider .pro6 {
+  background-image: url('../img/propuestas/6.jpg');
+  -webkit-animation: moveBg;
+  animation: moveBg;
+  -webkit-animation-duration: 5.9s;
+  animation-duration: 5.9s;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+  background-repeat: no-repeat; }
 
 .img-responsive {
   width: 100%;

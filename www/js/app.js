@@ -58,6 +58,16 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
     }
   })
 
+  .state('app.noticia', {
+    url: "/noticia/:id",
+    views: {
+      "menuContent": {
+        templateUrl: "templates/noticia.html",
+        controller: 'NotiCtrl'
+      }
+    }
+  })
+
   .state('app.bio', {
     url: "/bio",
     views: {
@@ -92,33 +102,6 @@ angular.module('pgt', ['ionic', 'pgt.controllers'])
       "menuContent": {
         templateUrl: "templates/mapa.html",
         controller: 'MapCtrl'
-      }
-    }
-  })
-
-  .state('app.mision', {
-    url: "/bio/mision",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/mision.html"
-      }
-    }
-  })
-
-  .state('app.vision', {
-    url: "/bio/vision",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/vision.html"
-      }
-    }
-  })
-
-  .state('app.objetivo', {
-    url: "/bio/objetivo",
-    views: {
-      "menuContent": {
-        templateUrl: "templates/bio/objetivo.html"
       }
     }
   })

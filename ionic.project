@@ -1,6 +1,6 @@
 {
   "name": "pgt",
-  "app_id": "",
+  "app_id": "4310195b",
   "gulpStartupTasks": [
     "sass",
     "watch"
@@ -8,5 +8,12 @@
   "watchPatterns": [
     "www/**/*",
     "!www/lib/**/*"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "13.41.318.0"
+    }
   ]
 }

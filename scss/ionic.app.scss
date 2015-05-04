@@ -18,6 +18,40 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+@-webkit-keyframes moveBg { 
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+
+@keyframes moveBg {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position:100% 0%;
+    }
+}
+@-webkit-keyframes moveBwBg { 
+    from {
+        background-position: 100% 0%;
+    }
+    to {
+        background-position:0% 0%;
+    }
+}
+
+@keyframes moveBwBg {
+    from {
+        background-position: 100% 0%;
+    }
+    to {
+        background-position:0% 0%;
+    }
+}
 
 
 
@@ -29,16 +63,97 @@ $royal: #cd5d1e;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/avenir.otf');
+}
+
+@font-face {
+	font-family: 'Avenir';
+	src: url('fonts/avenir-bold.otf');
+}
+
+.avenir {
+	font-family: 'Avenir' Helvetica, sans-serif;
+}
+
+ul#trayectoria {
+	li.item-divider {
+		background-color: $positive;
+		color: white;
+		border-left: none;
+	}
+	
+	li.item-text-wrap {
+		code {
+			font-size: 80%;
+		}
+		&:nth-child(odd) {
+			border-left: 10px solid $positive;
+		}
+		&:nth-child(even) {
+			border-left: 10px solid $royal;
+		}
+	}
+}
+
 .slider { height: 100%; text-align: center }
 .scroll { height: 100% }
 .box {
 	height: 100%;
-	padding: 35% 10px 0 10px;
+	display: table;
+	h2 {
+		display: table-cell;
+		vertical-align: middle;
+		span {
+			color: white;
+			text-shadow: 2px 0px 3px rgba(0,0,0,0.5), -2px 0px 3px rgba(0,0,0,0.5), 0px -2px 3px rgba(0,0,0,0.5), 0px 2px 3px rgba(0,0,0,0.5);
+		}
+	}
 }
-.slider .pro1,
-.slider .pro3,
-.slider .pro5 {
-	background-color: $royal;
+.slider {
+	.pro1 {
+		background-image: url('../img/propuestas/1.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro2 {
+		background-image: url('../img/propuestas/2.jpg');
+		@include animation(moveBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro3 {
+		background-image: url('../img/propuestas/3.jpg');
+		@include animation(moveBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro4 {
+		background-image: url('../img/propuestas/4.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro5 {
+		background-image: url('../img/propuestas/5.jpg');
+		@include animation(moveBwBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
+	.pro6 {
+		background-image: url('../img/propuestas/6.jpg');
+		@include animation(moveBg);
+		@include animation-duration(5.9s);
+		@include animation-iteration-count(infinite);
+		background-repeat: no-repeat;
+	}
 }
 
 .img-responsive {
