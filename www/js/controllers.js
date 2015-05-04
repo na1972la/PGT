@@ -1,6 +1,6 @@
 angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
 
-.factory('Noticias', ['$http', '$ionicPopup', function($http, $ionicPopup){
+.factory('Noticias', function($http, $ionicPopup){
   return {
     getAll: function() {
       $http.get("http://104.236.249.81/jason.php?action=all")
@@ -45,9 +45,28 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
       });
     }
   }
+})
+
+.factory('Agenda', ['$http', '$ionicPopup', function($http, $ionicPopup){
+  return {
+    getAgenda: function() {
+      $http.get("http://104.236.249.81/jason.php?action=agenda")
+
+        .success(function(data) {
+          window.localStorage['agenda'] = angular.toJson(data);
+          // return window.localStorage['agenda'];
+        })
+        .error(function(data) {
+          var alertPopup = $ionicPopup.alert({
+            title: 'Error de conexión',
+            templateUrl: "templates/popups/error_internet.html"
+          });
+        });
+    }
+  }
 }])
 
-.controller('MapCtrl', function($scope, $state, $stateParams) {
+.controller('MapCtrl', function($scope, $stateParams) {
   $scope.map = {
     center: {
         latitude:  25.675769,
@@ -87,46 +106,22 @@ angular.module('pgt.controllers', ['uiGmapgoogle-maps'])
     editable: false
   };
 
-  console.log("Param: " + $stateParams.lat);
-  console.log("Param: " + $stateParams.lng);
+  console.log("Param: " + $stateParams.lat + ", " + $stateParams.lng);
   $scope.map.center.latitude = $stateParams.lat;
   $scope.map.center.longitude = $stateParams.lng;
 
 })
 
-.controller('AgendaCtrl', function($scope) {
-  $scope.lugares = [
-  {
-    idea: 1,
-    direccion: "La Pastora",
-    latitude:  25.668212, 
-    longitude: -100.248840
-  },
-  { 
-    idea: 2,
-    direccion: "Hosp. Materno Infantil",
-    latitude:  25.694096, 
-    longitude: -100.222575
-  },
-  { 
-    idea: 3,
-    direccion: "Facultad de Artes Visuales",
-    latitude:  25.614009, 
-    longitude: -100.277443
-  },
-  {
-    idea: 4,
-    direccion: "Oficina del PAN",
-    latitude: 25.675775,
-    longitude: -100.224663
-  },
-  {
-    idea: 5,
-    direccion: "Barrio Antiguo",
-    latitude: 25.665689,
-    longitude:  -100.308431
+.controller('AgendaCtrl', function($scope, Agenda) {
+
+  $scope.lugares = angular.fromJson(window.localStorage['agenda']);
+  
+  $scope.actualizar = function() {
+    Agenda.getAgenda();
+    $scope.lugares = angular.fromJson(window.localStorage['agenda']);
+    $scope.$broadcast('scroll.refreshComplete');
   }
-  ];
+
 })
 
 .controller('AppCtrl', function($scope, $timeout, $ionicPopup, Noticias) {
